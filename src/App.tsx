@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import NavbarComponenet from './components/NavbarComponent';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import NavbarComponent from './components/NavbarComponent';
+import Footer from './components/footer';
+import Home from './pages/home';
+import Login from './pages/login';
+import Signup from './pages/signup';
 
 function App() {
   return (
 <Router>
-    <NavbarComponenet/>
+    <NavbarComponent/>
     <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
