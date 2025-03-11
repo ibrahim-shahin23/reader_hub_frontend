@@ -1,11 +1,38 @@
-import React from 'react'
+import React from 'react';
 
-const Login = () => {
+const Login: React.FC = () => {
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="container mt-5">
+      <h2>Login</h2>
+      <form>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            placeholder="Enter email"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
