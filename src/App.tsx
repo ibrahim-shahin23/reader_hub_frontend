@@ -1,21 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import NavbarComponenet from './components/NavbarComponent';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'; // Import useLocation
 import Dashboard from './pages/Dashboard';
-import footer from './components/footer'
+import NavbarComponent from './components/NavbarComponent';
 import Footer from './components/footer';
+import Home from './pages/home';
+import Login from './pages/login';
+import Signup from './pages/signup';
+import ResetPasswordPage from './pages/resetPassword';
+import VerifyEmailPage from './pages/verifyEmail';
 
 function App() {
   return (
-    <Router>
-      <>
-        <NavbarComponenet />
-        <AppContent /> {/* Move the content to a separate component */}
-        <Footer/>
-      </>
-    </Router>
+<Router>
+    <NavbarComponent/>
+    <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/resetPassword" element={<ResetPasswordPage />} />
+          <Route path="/verifyEmail" element={<VerifyEmailPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+    <AppContent />
+    <Footer/>
+</Router>
   );
 }
 
@@ -26,8 +34,8 @@ const AppContent: React.FC = () => {
   return (
     <>
       {/* Conditionally render the button based on the route */}
-      {location.pathname !== '/dashboard' && (
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      {location.pathname === '/' && (
+        <div style={{ textAlign: 'center', marginTop: '30px' }}>
           <Link to="/dashboard">
             <button
               style={{
@@ -45,10 +53,6 @@ const AppContent: React.FC = () => {
           </Link>
         </div>
       )}
-      {/* Define the route for the Dashboard */}
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
     </>
   );
 };

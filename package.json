@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^19.0.10",
     "@types/react-bootstrap": "^0.32.37"
   }
 }

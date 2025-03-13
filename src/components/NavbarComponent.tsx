@@ -6,13 +6,20 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import logo from '../assets/logo1.png'; // Import the image
 
-function NavbarComponenet() {
+function NavbarComponent() {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary mb-3">
-        <Container fluid>
-          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+      <Navbar expand="lg" className="p-0 bg-body-tertiary mb-3" fixed="top">
+        <Container fluid className='ps-0'>
+          <Navbar.Brand className='p-0' href="#">
+            <img src={logo} // Use the imported image
+            alt="Logo"
+            width="60"
+            height="60"
+            className="d-inline-block align-top" />
+            </Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-lg"
@@ -21,13 +28,15 @@ function NavbarComponenet() {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-lg">
-                Offcanvas
+                Reader Hub
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="#action2">Link</Nav.Link>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="login">Login</Nav.Link>
+                <Nav.Link href="signup">Signup</Nav.Link>
+                
                 <NavDropdown
                   title="Dropdown"
                   id="offcanvasNavbarDropdown-expand-lg"
@@ -59,4 +68,4 @@ function NavbarComponenet() {
   );
 }
 
-export default NavbarComponenet;
+export default NavbarComponent;
