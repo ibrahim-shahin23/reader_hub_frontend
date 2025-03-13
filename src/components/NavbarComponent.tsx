@@ -11,7 +11,7 @@ import logo from '../assets/logo1.png'; // Import the image
 function NavbarComponent() {
   return (
     <>
-      <Navbar expand="lg" className="p-0 bg-body-tertiary mb-3">
+      <Navbar expand="lg" className="p-0 bg-body-tertiary mb-3" fixed="top">
         <Container fluid className='ps-0'>
           <Navbar.Brand className='p-0' href="#">
             <img src={logo} // Use the imported image

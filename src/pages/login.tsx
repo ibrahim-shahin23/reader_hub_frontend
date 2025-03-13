@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 const Login: React.FC = () => {
   return (
-    <div className="container mt-5">
+    <div className="container col-12 col-md-6 mt-5">
       <h2>Login</h2>
       <form>
         <div className="mb-3">
@@ -22,10 +23,14 @@ const Login: React.FC = () => {
           </label>
           <input
             type="password"
-            className="form-control"
+            className="form-control mb-2"
             id="password"
             placeholder="Password"
           />
+          <div className="d-flex justify-content-between">
+        <a className='me-5' href="signup"><strong>Don't have an account</strong></a>
+        <a href="resetPassword"><strong>Forgot your Password</strong></a>
+          </div>
         </div>
         <button type="submit" className="btn btn-primary">
           Login

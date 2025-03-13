@@ -2,9 +2,9 @@ import React from 'react';
 
 const Signup: React.FC = () => {
   return (
-    <div className="container mt-5">
+    <div className="container col-12 col-md-6 mt-5">
       <h2>Signup</h2>
-      <form>
+      <form action="verifyEmail">
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name
@@ -33,10 +33,11 @@ const Signup: React.FC = () => {
           </label>
           <input
             type="password"
-            className="form-control"
+            className="form-control mb-2"
             id="password"
             placeholder="Password"
           />
+          <a href="login"><strong>Already have an account</strong></a>
         </div>
         <button type="submit" className="btn btn-primary">
           Signup
