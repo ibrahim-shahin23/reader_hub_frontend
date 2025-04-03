@@ -6,14 +6,25 @@ const Signup: React.FC = () => {
       <h2>Signup</h2>
       <form action="verifyEmail">
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Name
+          <label htmlFor="first-name" className="form-label">
+            First Name
           </label>
           <input
             type="text"
             className="form-control"
-            id="name"
-            placeholder="Enter your name"
+            id="first-name"
+            placeholder="Enter your first name"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="last-name" className="form-label">
+            Last Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="last-name"
+            placeholder="Enter your last name"
           />
         </div>
         <div className="mb-3">
@@ -28,6 +39,15 @@ const Signup: React.FC = () => {
           />
         </div>
         <div className="mb-3">
+          <label htmlFor="role" className="form-label">
+            Role
+          </label>
+          <select className="form-control" id="role">
+            <option value="user" selected>User</option>
+            <option value="publisher">Publisher</option>
+          </select>
+        </div>
+        <div className="mb-3">
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -35,6 +55,17 @@ const Signup: React.FC = () => {
             type="password"
             className="form-control mb-2"
             id="password"
+            placeholder="Password"
+          />
+          </div>
+        <div className="mb-3">
+          <label htmlFor="confirm-password" className="form-label">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            className="form-control mb-2"
+            id="confirm-password"
             placeholder="Password"
           />
           <a href="login"><strong>Already have an account</strong></a>
