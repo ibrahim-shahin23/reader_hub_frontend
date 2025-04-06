@@ -5,7 +5,7 @@ const Signup: React.FC = () => {
     firstName: '',
     lastName: '',
     email: '',
-    role: 'user',
+    role: 'client',
     password: '',
     confirmPassword: ''
   });
@@ -31,7 +31,7 @@ const Signup: React.FC = () => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.role || !formData.password) {
       setError('Please fill in all required fields');
       return;
     }
@@ -45,7 +45,7 @@ const Signup: React.FC = () => {
     setError('');
     
     try {
-      const response = await fetch('https://Readerhub.eu-north-1.elasticbeanstalk.com/api/auth/register', {
+      const response = await fetch('http://reader-book.us-east-1.elasticbeanstalk.com/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,9 +60,13 @@ const Signup: React.FC = () => {
       });
       
       if (!response.ok) {
-        throw new Error('Signup failed');
+        const errorData = await response.json();
+        console.log('Response error details:', errorData);
+        console.log(formData.role)
+        // Display the specific error message from the API to the user
+        setError(errorData.message || errorData.errors[0].message);
+        return;
       }
-      
       setSuccess('Signup successful! Redirecting to verification page...');
       // Redirect to verify email page after successful signup
       setTimeout(() => {
@@ -70,7 +74,7 @@ const Signup: React.FC = () => {
       }, 2000);
       
     } catch (err) {
-      setError('Failed to sign up. Please try again later.');
+      // setError('Failed to sign up. Please try again later.');
       console.error('Signup error:', err);
     } finally {
       setIsSubmitting(false);
@@ -95,7 +99,6 @@ const Signup: React.FC = () => {
             placeholder="Enter your first name"
             value={formData.firstName}
             onChange={handleChange}
-            required
           />
         </div>
         <div className="mb-3">
@@ -109,7 +112,6 @@ const Signup: React.FC = () => {
             placeholder="Enter your last name"
             value={formData.lastName}
             onChange={handleChange}
-            required
           />
         </div>
         <div className="mb-3">
@@ -136,9 +138,8 @@ const Signup: React.FC = () => {
             value={formData.role}
             onChange={handleChange}
           >
-            <option value="user">User</option>
+            <option value="client">Client</option>
             <option value="publisher">Publisher</option>
-            <option value="admin">Admin</option>
           </select>
         </div>
         <div className="mb-3">

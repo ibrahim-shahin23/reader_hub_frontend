@@ -30,7 +30,7 @@ const Login: React.FC = () => {
     setError('');
     
     try {
-      const response = await fetch('https://Readerhub.eu-north-1.elasticbeanstalk.com/api/auth/login', {
+      const response = await fetch('http://reader-book.us-east-1.elasticbeanstalk.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const Login: React.FC = () => {
       
       // Redirect to home page after successful login
       setTimeout(() => {
-        window.location.href = '/home';
+        window.location.href = '/';
       }, 1000);
       
     } catch (err) {
