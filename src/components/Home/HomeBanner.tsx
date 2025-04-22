@@ -5,7 +5,6 @@ import bannerImage from '../../assets/banner-image.png';
 const HomeBanner: React.FC = () => {
   const navigate = useNavigate();
 
-  // Style objects with centered layout and no shadows
   const styles = {
     banner: {
       display: 'flex',
