@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'; // Import useLocation
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import NavbarComponent from './components/NavbarComponent';
 import Footer from './components/footer';
@@ -8,32 +8,32 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import ResetPasswordPage from './pages/resetPassword';
 import VerifyEmailPage from './pages/verifyEmail';
+import BooksPage from './components/books/BooksPage'; // Import the BooksPage component
 
 function App() {
   return (
-<Router>
-    <NavbarComponent/>
-    <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/resetPassword" element={<ResetPasswordPage />} />
-          <Route path="/verifyEmail" element={<VerifyEmailPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
-    <AppContent />
-    <Footer/>
-</Router>
+    <Router>
+      <NavbarComponent/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/resetPassword" element={<ResetPasswordPage />} />
+        <Route path="/verifyEmail" element={<VerifyEmailPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/books" element={<BooksPage />} /> {/* Added BooksPage route */}
+      </Routes>
+      <AppContent />
+      <Footer/>
+    </Router>
   );
 }
 
-// Create a new component for the content
 const AppContent: React.FC = () => {
-  const location = useLocation(); // Get the current location
+  const location = useLocation();
 
   return (
     <>
-      {/* Conditionally render the button based on the route */}
       {location.pathname === '/' && (
         <div style={{ textAlign: 'center', marginTop: '30px' }}>
           <Link to="/dashboard">
