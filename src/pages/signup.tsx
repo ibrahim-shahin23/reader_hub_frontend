@@ -99,6 +99,7 @@ const Signup: React.FC = () => {
             placeholder="Enter your first name"
             value={formData.firstName}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-3">
@@ -112,6 +113,7 @@ const Signup: React.FC = () => {
             placeholder="Enter your last name"
             value={formData.lastName}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-3">

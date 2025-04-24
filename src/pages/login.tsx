@@ -43,6 +43,7 @@ const Login: React.FC = () => {
       
       if (!response.ok) {
         const errorData = await response.json().catch(() => null);
+        console.log(errorData)
         throw new Error(errorData?.message || 'Login failed');
       }
       
@@ -86,7 +87,7 @@ const Login: React.FC = () => {
             placeholder="Enter email"
             value={formData.email}
             onChange={handleChange}
-            required
+            
           />
         </div>
         <div className="mb-3">
@@ -100,7 +101,7 @@ const Login: React.FC = () => {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            required
+            
           />
           <div className="d-flex justify-content-between">
             <a className='me-5' href="signup"><strong>Don't have an account</strong></a>
