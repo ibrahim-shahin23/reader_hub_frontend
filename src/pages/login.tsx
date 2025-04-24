@@ -30,7 +30,7 @@ const Login: React.FC = () => {
     setError('');
     
     try {
-      const response = await fetch('http://reader-book.us-east-1.elasticbeanstalk.com/api/auth/login', {
+      const response = await fetch('http://reader-hub.us-east-1.elasticbeanstalk.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
