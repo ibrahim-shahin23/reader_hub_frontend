@@ -40,12 +40,13 @@ const Signup: React.FC = () => {
       setError('Passwords do not match');
       return;
     }
-    
+    const baseUrl = process.env.REACT_APP_BASE_URL
+
     setIsSubmitting(true);
     setError('');
     
     try {
-      const response = await fetch('http://reader-hub.us-east-1.elasticbeanstalk.com/api/auth/register', {
+      const response = await fetch(`${baseUrl}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -17,6 +17,8 @@ const Login: React.FC = () => {
     });
   };
 
+  const baseUrl = process.env.REACT_APP_BASE_URL
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -30,7 +32,7 @@ const Login: React.FC = () => {
     setError('');
     
     try {
-      const response = await fetch('http://reader-hub.us-east-1.elasticbeanstalk.com/api/auth/login', {
+      const response = await fetch(`${baseUrl}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
